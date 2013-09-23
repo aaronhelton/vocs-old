@@ -8,7 +8,6 @@ supported_languages.each do |lang|
 
     describe "Home page" do
       before { visit "#{root_path}?locale=#{lang}" }
-      it { should have_content("UNBIS Thesaurus") }
       it { should have_title(full_title('')) }
       it { should_not have_title('| Home') }
     end
