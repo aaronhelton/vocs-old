@@ -1,14 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vocs</title>
+  <title><%= full_title(yield(:title))  %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 <body>
-
-<%= yield %>
+<%
+  def li_class(lang)
+    if lang == params[:locale]
+      return 'class=active'
+    end
+  end
+%>
+  <div class="container">
+    <div class="row">
+      <div class="navbar navbar-default">
+        <div class="lang">
+          <ul class="nav">
+            <li <%= li_class("ar") %> lang="ar" xml:lang="ar"><a href="<%= url_for(:locale => :ar) %>">ï»ïº®ïºï»³</a></li>
+            <li <%= li_class("zh") %> lang="zh" xml:lang="zh"><a href="<%= url_for(:locale => :zh) %>">ä¸­æ</a></li>
+            <li <%= li_class("en") %> lang="en" xml:lang="en"><a href="<%= url_for(:locale => :en) %>">English</a></li>
+            <li <%= li_class("fr") %> lang="fr" xml:lang="fr"><a href="<%= url_for(:locale => :fr) %>">FranÃ§ais</a></li>
+            <li <%= li_class("ru") %> lang="ru" xml:lang="ru"><a href="<%= url_for(:locale => :ru) %>">Ð ÑÑÑÐºÐ¸Ð¹</a></li>
+            <li <%= li_class("es") %> lang="es" xml:lang="es"><a href="<%= url_for(:locale => :es) %>">EspaÃ±ol</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="navbar navbar-default">
+        <div class="navbar-inner">
+          <ul class="nav pull-left">
+            <li><%= link_to 'UNBIS Thesaurus', home_path, class: "navbar-brand" %></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li><%= link_to I18n.t('nav.terms'), 'terms' %></li>
+            <li><%= link_to I18n.t('nav.categories'), 'categories' %></li>
+            <li><%= link_to I18n.t('nav.signup'), signup_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <%= yield %>
+    </div>
+    <div class="row">
+      <div class="navbar navbar-fixed-bottom">
+        <div class="navbar-inner">
+          <div class="container">
+            <ul class="nav pull-left">
+              <li><%= link_to I18n.t('nav.about'), about_path %></li>
+              <li><%= link_to I18n.t('nav.help'), help_path %></li>
+              <li><%= link_to I18n.t('nav.contact'), contact_path %></li>
+            </ul>
+            <%= debug(params) if Rails.env.development? %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
