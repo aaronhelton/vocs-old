@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Vocs::Application.config.secret_key_base = '589ab72b0a4ebc655f365649cf0282d5340eeb0592cb39d673af01db299a77726186f0544bb484ed05e8521c42d7bf4398288e30128661a3ee33b1813ee641fa'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    #use existing token
+    File.read(token_file).chomp
+  else
+    # Generate one
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Vocs::Application.config.secret_key_base = secure_token
