@@ -1,8 +1,22 @@
 Vocs::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/about"
-  get "static_pages/contact"
+  get "users/new"
+  match '/home', to: "static_pages#home", via: 'get'
+  match '/help', to: "static_pages#help", via: 'get'
+  match '/about', to: "static_pages#about", via: 'get'
+  match '/contact', to: "static_pages#contact", via: 'get'
+  match '/signup', to: "users#new", via: 'get'
+  scope "(:locale)", locale: /ar|zh|en|fr|ru|es/ do
+    resources :static_pages
+  end
+  get "/:locale" => 'static_pages#home'
+  get "/:locale/home" => 'static_pages#home'
+  get "/:locale/about" => 'static_pages#about'
+  get "/:locale/help" => 'static_pages#help'
+  get "/:locale/contact" => 'static_pages#contact'
+  get "/:locale/signup" => 'users#new'
+  get "/:locale/terms" => 'terms#index'
+  get "/:locale/categories" => 'categories#index'
+  root "static_pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
