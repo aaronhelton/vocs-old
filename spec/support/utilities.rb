@@ -1,5 +1,5 @@
 def full_title(page_title)
-  base_title = "UNBIS Thesaurus"
+  base_title = I18n.t('vocs_app_name')
   if page_title.empty?
     base_title
   else
