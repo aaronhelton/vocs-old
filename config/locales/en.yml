@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  nav:
+    home: "Home"
+    about: "About"
+    help: "Help"
+    contact: "Contact"
+    contact_us: "Contact us"
+    terms: "Terms"
+    categories: "Categories"
+    signup: "Sign up"
