@@ -5,3 +5,7 @@ Apologies up front if you arrive here with high hopes.
 For the first little bit, I will be following a Rails 4 tutorial.  This repo is likely to be wonky.
 
 If you like the concept, hop aboard.
+
+== Description
+
+This is or will be a Rails 4 based vocabulary environment.  Its features include multi-user administration, adding and editing of multilingual vocabulary terms, and presentation of terms and translations through API calls.  Additionally, I hope to be able to parse SKOS formatted XML files and produce arbitrary SKOS files in return.  
