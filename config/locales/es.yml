@@ -8,6 +8,9 @@ es:
     terms: "Términos"
     categories: "Categorías"
     signup: "Registrar"
+    signup_now: "¡Regístrese ahora!"
+    signin: "Acceder"
+    signout: "Finalizar la sesión"
   activerecord:
     models:
       user: "Usuario"
@@ -31,8 +34,15 @@ es:
               too_short: "es demasiado corto (el mínimo es de %{count} caracteres)."
   form:
     user_create_success: "El usuario se creó correctamente."
+    invalid: "No es válido"
+    login_failed: "Hay una problema con su correo electrónico/contraseña."
   button:
     create_account: "Crear cuenta"
+    signin: "Acceder"
+    signout: "Finalizar la sesión"
   form_has_x_errors:
     one: "La forma contiene %{count} error."
     other: "La forma contiene %{count} errores."
+  pages:
+    signup:
+      new_user_q: "¿Nuevo usuario?"

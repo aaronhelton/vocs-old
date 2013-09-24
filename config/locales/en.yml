@@ -8,6 +8,9 @@ en:
     terms: "Terms"
     categories: "Categories"
     signup: "Sign up"
+    signup_now: "Sign up now!"
+    signin: "Sign in"
+    signout: "Sign out"
   activerecord:
     models:
       user: "User"
@@ -31,8 +34,15 @@ en:
               too_short: "is too short (minimum is %{count} characters)."
   form:
     user_create_success: "User was successfully created."
+    invalid: "Invalid"
+    login_failed: "There was a problem with your email/password."
   button:
     create_account: "Create account"
+    signin: "Sign in"
+    signout: "Sign out"
   form_has_x_errors:
     one: "The form contains %{count} error."
     other: "The form contains %{count} errores."
+  pages:
+    signup:
+      new_user_q: "New user?"
