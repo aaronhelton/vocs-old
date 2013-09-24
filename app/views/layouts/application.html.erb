@@ -47,10 +47,13 @@
       </div>
     </div>
     <div class="row">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
       <%= yield %>
     </div>
     <div class="row">
-      <div class="navbar navbar-fixed-bottom">
+      <div class="navbar">
         <div class="navbar-inner">
           <div class="container">
             <ul class="nav pull-left">

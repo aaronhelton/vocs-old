@@ -7,3 +7,6 @@ def full_title(page_title)
   end
 end
 
+def supported_languages
+  return ['en','es']
+end

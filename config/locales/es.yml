@@ -8,3 +8,31 @@ es:
     terms: "Términos"
     categories: "Categorías"
     signup: "Registrar"
+  activerecord:
+    models:
+      user: "Usuario"
+    attributes:
+      user:
+        email: "Correo electrónico"
+        password: "Contraseña"
+        password_confirmation: "Confirmación"
+        name: "Nombre"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "no puede estar en blanco."
+            email:
+              blank: "no puede estar en blanco."
+              invalid: "no es válido."
+            password:
+              blank: "no puede estar en blanco."
+              too_short: "es demasiado corto (el mínimo es de %{count} caracteres)."
+  form:
+    user_create_success: "El usuario se creó correctamente."
+  button:
+    create_account: "Crear cuenta"
+  form_has_x_errors:
+    one: "La forma contiene %{count} error."
+    other: "La forma contiene %{count} errores."

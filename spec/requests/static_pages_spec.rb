@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-supported_languages = ['en','es']
-
 supported_languages.each do |lang|
   describe "StaticPages for locale=#{lang}" do
     subject { page }
