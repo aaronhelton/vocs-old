@@ -1,4 +1,5 @@
 es:
+  vocs_app_name: "Vocs"
   nav:
     about: "Sobre"
     home: "Inicio"
@@ -9,11 +10,15 @@ es:
     categories: "Categorías"
     signup: "Registrar"
     signup_now: "¡Regístrese ahora!"
-    signin: "Acceder"
+    signin: "Acceder / registrar"
     signout: "Finalizar la sesión"
     profile: "Perfil"
     account: "Cuenta"
     settings: "Ajustes"
+    edit_user: "Editar usuario"
+    edit_profile: "Editar perfil"
+    delete_user: "Borrar"
+    all_users: "Todos los usuarios"
   activerecord:
     models:
       user: "Usuario"
@@ -37,16 +42,29 @@ es:
               blank: "no puede estar en blanco."
               too_short: "es demasiado corto (el mínimo es de %{count} caracteres)."
   form:
-    user_create_success: "El usuario se creó correctamente."
+    user_create_success: "El usuario se ha creado correctamente."
     invalid: "No es válido"
     login_failed: "Hay una problema con su correo electrónico/contraseña."
+    profile_update_success: "El perfil se ha actualizado correctamente."
+    please_sign_in: "Por favor, inicie sesión."
   button:
     create_account: "Crear cuenta"
     signin: "Acceder"
     signout: "Finalizar la sesión"
+    save_changes: "Guardar los cambios"
   form_has_x_errors:
     one: "La forma contiene %{count} error."
     other: "La forma contiene %{count} errores."
   pages:
     signup:
       new_user_q: "¿Nuevo usuario?"
+    edit:
+      update_profile: "Actualizar el perfil"
+    delete:
+      are_you_sure_q: "¿Está seguro?"
+  will_paginate:
+    next_label: "Próximo"
+    previous_label: "Anterior"
+  external:
+    gravatar:
+      change: "cambiar"

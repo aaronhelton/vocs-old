@@ -1,4 +1,5 @@
 en:
+  vocs_app_name: "Vocs"
   nav:
     home: "Home"
     about: "About"
@@ -9,11 +10,15 @@ en:
     categories: "Categories"
     signup: "Sign up"
     signup_now: "Sign up now!"
-    signin: "Sign in"
+    signin: "Sign in / register"
     signout: "Sign out"
     profile: "Profile"
     account: "Account"
     settings: "Settings"
+    edit_user: "Edit user"
+    edit_profile: "Edit profile"
+    delete_user: "Delete"
+    all_users: "All users"
   activerecord:
     models:
       user: "User"
@@ -40,13 +45,26 @@ en:
     user_create_success: "User was successfully created."
     invalid: "Invalid"
     login_failed: "There was a problem with your email/password."
+    profile_update_success: "Profile successfully updated."
+    please_sign_in: "Please sign in."
   button:
     create_account: "Create account"
     signin: "Sign in"
     signout: "Sign out"
+    save_changes: "Save changes"
   form_has_x_errors:
     one: "The form contains %{count} error."
     other: "The form contains %{count} errores."
   pages:
     signup:
       new_user_q: "New user?"
+    edit:
+      update_profile: "Update your profile"
+    delete:
+      are_you_sure_q: "Are you sure?"
+  will_paginate:
+    next_label: "Next"
+    previous_label: "Previous"
+  external:
+    gravatar:
+      change: "change"

@@ -2,4 +2,4 @@
 <h1>
   <%= gravatar_for @user %>
   <%= @user.name %>
-</h1>
+</h1><%= link_to I18n.t('nav.edit_profile'), edit_user_path(current_user) %>

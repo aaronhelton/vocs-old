@@ -1,6 +1,4 @@
 Vocs::Application.routes.draw do
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
   get "users/new"
   match '/home', to: "static_pages#home", via: 'get'
   match '/help', to: "static_pages#help", via: 'get'
@@ -11,6 +9,8 @@ Vocs::Application.routes.draw do
   match '/signout', to: "sessions#destroy", via: 'delete'
   scope "(:locale)", locale: /ar|zh|en|fr|ru|es/ do
     resources :static_pages
+    resources :users
+    resources :sessions, only: [:new, :create, :destroy]
   end
   get "/:locale" => 'static_pages#home'
   get "/:locale/home" => 'static_pages#home'

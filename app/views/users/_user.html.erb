@@ -1,0 +1,7 @@
+<li>
+  <%= gravatar_for user %>
+  <%= link_to user.name, user %>
+  <% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to I18n.t('nav.delete_user'), user, method: :delete, data: { confirm: I18n.t('pages.delete.are_you_sure_q') } %>
+  <% end %>
+</li>
