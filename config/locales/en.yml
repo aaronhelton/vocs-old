@@ -11,6 +11,9 @@ en:
     signup_now: "Sign up now!"
     signin: "Sign in"
     signout: "Sign out"
+    profile: "Profile"
+    account: "Account"
+    settings: "Settings"
   activerecord:
     models:
       user: "User"
@@ -29,6 +32,7 @@ en:
             email:
               blank: "cannot be blank."
               invalid: "is invalid."
+              taken: "is already taken."
             password:
               blank: "cannot be blank."
               too_short: "is too short (minimum is %{count} characters)."

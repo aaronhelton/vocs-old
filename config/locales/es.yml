@@ -11,6 +11,9 @@ es:
     signup_now: "¡Regístrese ahora!"
     signin: "Acceder"
     signout: "Finalizar la sesión"
+    profile: "Perfil"
+    account: "Cuenta"
+    settings: "Ajustes"
   activerecord:
     models:
       user: "Usuario"
@@ -29,6 +32,7 @@ es:
             email:
               blank: "no puede estar en blanco."
               invalid: "no es válido."
+              taken: "ya está en uso."
             password:
               blank: "no puede estar en blanco."
               too_short: "es demasiado corto (el mínimo es de %{count} caracteres)."

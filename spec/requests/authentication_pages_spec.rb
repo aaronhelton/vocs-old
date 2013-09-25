@@ -18,7 +18,7 @@ describe "AuthenticationPages" do
     describe "with invalid information" do
       before { click_button I18n.t('button.signin') }
       it { should have_title(I18n.t('nav.signin')) }
-      it { should have_selector('div.alert.alert-error', text: I18n.t('form.invalid')) }
+      it { should have_selector('div.alert.alert-error') }
     end
 
     describe "with valid information" do
@@ -30,9 +30,9 @@ describe "AuthenticationPages" do
       end
 
       it { should have_title(user.name) }
-      it { should have_link(I18n.t('nav.profile'), href: user_path(user)) }
-      it { should have_link(I18n.t('nav.signout'), href: signout_path) }
-      it { should_not have_link(I18n.t('nav.signin'), href: signin_path) }
+      it { should have_link(I18n.t('nav.profile'), href: "#{user_path(user)}?locale=en") }
+      it { should have_link(I18n.t('nav.signout'), href: "#{signout_path}?locale=en") }
+      it { should_not have_link(I18n.t('nav.signin'), href: "#{signin_path}?locale=en") }
 
       describe "after visiting another page" do
         before { click_link "Home" }
