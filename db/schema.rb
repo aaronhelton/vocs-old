@@ -11,10 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131003234646) do
+ActiveRecord::Schema.define(version: 20131004121649) do
 
   create_table "concepts", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "concepts_identifiers", force: true do |t|
+    t.integer "concept_id"
+    t.integer "identifier_id"
+  end
+
+  create_table "concepts_labels", id: false, force: true do |t|
+    t.integer "concept_id"
+    t.integer "label_id"
+  end
+
+  create_table "identifiers", force: true do |t|
+    t.string   "value"
+    t.boolean  "is_uri"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "labels", force: true do |t|
+    t.string   "value"
+    t.string   "language"
+    t.string   "label_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
