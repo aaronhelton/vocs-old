@@ -1,0 +1,10 @@
+<% provide(:title, I18n.t("nav.concepts")) %>
+<h1><%= I18n.t("nav.concepts") %></h1>
+<div class="span8">
+  <% if @concepts.any? %>
+    <ol class="concepts">
+      <%= render @concepts %>
+    </ol>
+    <%= will_paginate @concepts %>
+  <% end %>
+<div>

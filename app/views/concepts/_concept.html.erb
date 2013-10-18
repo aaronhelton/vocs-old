@@ -1,0 +1,8 @@
+<% pref_label = concept.labels.preferred.for_locale(params[:locale]) %>
+<% if pref_label.size > 0 
+     @labels = pref_label 
+   else 
+     @labels = concept.labels.preferred.for_locale('EN')
+   end
+%>
+<li><%= render @labels %></li>

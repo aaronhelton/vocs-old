@@ -7,6 +7,8 @@ Vocs::Application.routes.draw do
   match '/signup', to: "users#new", via: 'get'
   match '/signin', to: "sessions#new", via: 'get'
   match '/signout', to: "sessions#destroy", via: 'delete'
+  match '/concepts', to: "concepts#index", via: 'get'
+  match '/categories', to: "categories#index", via: 'get'
   scope "(:locale)", locale: /ar|zh|en|fr|ru|es/ do
     resources :static_pages
     resources :users
@@ -18,7 +20,7 @@ Vocs::Application.routes.draw do
   get "/:locale/help" => 'static_pages#help'
   get "/:locale/contact" => 'static_pages#contact'
   get "/:locale/signup" => 'users#new'
-  get "/:locale/terms" => 'terms#index'
+  get "/:locale/concepts" => 'concepts#index'
   get "/:locale/categories" => 'categories#index'
   root "static_pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
