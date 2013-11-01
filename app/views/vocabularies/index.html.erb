@@ -1,0 +1,10 @@
+<% provide(:title, I18n.t("nav.vocabularies")) %>
+<h1><%= I18n.t("nav.vocabularies") %></h1>
+<div class="span8">
+  <% if @vocabularies.any? %>
+    <ol class="concepts">
+      <%= render @vocabularies %>
+    </ol>
+    <%= will_paginate @vocabularies %>
+  <% end %>
+<div>

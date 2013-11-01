@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131018102614) do
+ActiveRecord::Schema.define(version: 20131022153429) do
 
   create_table "concepts", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_category", default: false
+    t.string   "concept_type"
   end
 
   create_table "concepts_identifiers", force: true do |t|

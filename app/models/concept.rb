@@ -6,6 +6,6 @@ class Concept < ActiveRecord::Base
   has_and_belongs_to_many :labels
   has_and_belongs_to_many :identifiers
   validates :name, presence: true
-  scope :end, -> { where(is_category: false) }
-  scope :category, -> { where(is_category: true) } 
+  scope :isConceptScheme, -> { where(concept_type: 'Concept Scheme') } 
+  scope :isVocabulary, -> { where(concept_type: 'Vocabulary') }
 end

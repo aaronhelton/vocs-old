@@ -9,9 +9,11 @@ Vocs::Application.routes.draw do
   match '/signout', to: "sessions#destroy", via: 'delete'
   match '/concepts', to: "concepts#index", via: 'get'
   match '/categories', to: "categories#index", via: 'get'
+  match '/vocabularies', to: "vocabularies#index", via: 'get'
   scope "(:locale)", locale: /ar|zh|en|fr|ru|es/ do
     resources :static_pages
     resources :users
+    resources :concepts
     resources :sessions, only: [:new, :create, :destroy]
   end
   get "/:locale" => 'static_pages#home'
@@ -22,6 +24,7 @@ Vocs::Application.routes.draw do
   get "/:locale/signup" => 'users#new'
   get "/:locale/concepts" => 'concepts#index'
   get "/:locale/categories" => 'categories#index'
+  get "/:locale/vocabularies" => 'vocabularies#index'
   root "static_pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
