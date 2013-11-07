@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131022153429) do
+ActiveRecord::Schema.define(version: 20131107171449) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "concepts", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "concept_type"
   end
 
   create_table "concepts_identifiers", force: true do |t|
@@ -41,6 +46,8 @@ ActiveRecord::Schema.define(version: 20131022153429) do
     t.string   "value"
     t.string   "language"
     t.string   "label_type"
+    t.integer  "labelable_id"
+    t.string   "labelable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,5 +71,11 @@ ActiveRecord::Schema.define(version: 20131022153429) do
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "vocabularies", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

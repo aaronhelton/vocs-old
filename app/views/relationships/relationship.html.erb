@@ -7,10 +7,4 @@
      @labels = @concept.labels.preferred.for_locale('EN')
    end
 %>
-<% provide(:title, @labels.first.value) %>
-<h1>
-  <%= @labels.first.value %>
-</h1>
-<% if @concept.concept_type == 'Vocabulary' %>
-  <%= render @concept.childSchemes %>
-<% end %>
+<%= render @labels %>

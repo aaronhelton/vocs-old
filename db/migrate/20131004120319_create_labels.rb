@@ -4,6 +4,7 @@ class CreateLabels < ActiveRecord::Migration
       t.string :value
       t.string :language
       t.string :label_type
+      t.references :labelable, polymorphic: true
 
       t.timestamps
     end

@@ -1,1 +1,12 @@
-<span class="conceptLabel"><%= label.value %></span>
+<% pref_label = vocabulary.labels.preferred.for_locale(params[:locale]) %>
+<% if pref_label.size > 0
+     @labels = pref_label
+   else
+     @labels = vocabulary.labels.preferred.for_locale('EN')
+   end
+%>
+<li>
+  <%= render @labels %>
+</li>
+
+<% #<span class="conceptLabel"><%= label.value </span> %>
