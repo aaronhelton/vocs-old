@@ -20,6 +20,8 @@ en:
     edit_profile: "Edit profile"
     delete_user: "Delete"
     all_users: "All users"
+    language: "Language"
+    language_equivalent: "Language Equivalent"
   activerecord:
     models:
       user: "User"

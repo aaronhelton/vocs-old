@@ -1,5 +1,9 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Concept.isConceptScheme.paginate(page: params[:page])
+    @categories = Category.paginate(page: params[:page])
+  end
+
+  def show
+    @category = Category.find(params[:id])
   end
 end

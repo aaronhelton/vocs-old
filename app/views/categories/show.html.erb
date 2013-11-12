@@ -1,0 +1,20 @@
+<% if params[:locale] %>
+<% end %>
+<% pref_label = @category.labels.preferred.for_locale(params[:locale]) %>
+<% if pref_label.size > 0
+     @labels = pref_label
+   else
+     @labels = @category.labels.preferred.for_locale('EN')
+   end
+%>
+<% provide(:title, @labels.first.value) %>
+<h1>
+  <%= @labels.first.value %>
+</h1>
+<% if @category.concepts.any? %>
+<ul>
+<%   @category.concepts.each do |c| %>
+  <%= render c %>
+<%   end %>
+</ul>
+<% end %>

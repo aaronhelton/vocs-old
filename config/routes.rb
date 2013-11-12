@@ -14,6 +14,8 @@ Vocs::Application.routes.draw do
     resources :static_pages
     resources :users
     resources :concepts
+    resources :vocabularies
+    resources :categories
     resources :sessions, only: [:new, :create, :destroy]
   end
   get "/:locale" => 'static_pages#home'

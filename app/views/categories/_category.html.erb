@@ -1,1 +1,17 @@
-<span class="conceptLabel"><%= label.value %></span>
+<% pref_label = category.labels.preferred.for_locale(params[:locale]) %>
+<% if pref_label.size > 0
+     @labels = pref_label
+   else
+     @labels = category.labels.preferred.for_locale('EN')
+   end
+%>
+<li>
+  <%= render @labels %>
+  <% if category.children.any? %>
+  <ul>
+    <% category.children.each do |c| %>
+	<%= render c %>
+    <% end %>
+  </ul>
+  <% end %>
+</li>

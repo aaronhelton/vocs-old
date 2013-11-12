@@ -11,12 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131107171449) do
+ActiveRecord::Schema.define(version: 20131111171628) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
+  end
+
+  create_table "categories_concepts", force: true do |t|
+    t.integer "category_id"
+    t.integer "concept_id"
+  end
+
+  create_table "categories_vocabularies", force: true do |t|
+    t.integer "category_id"
+    t.integer "vocabulary_id"
   end
 
   create_table "concepts", force: true do |t|
@@ -33,6 +44,11 @@ ActiveRecord::Schema.define(version: 20131107171449) do
   create_table "concepts_labels", id: false, force: true do |t|
     t.integer "concept_id"
     t.integer "label_id"
+  end
+
+  create_table "concepts_vocabularies", force: true do |t|
+    t.integer "concept_id"
+    t.integer "vocabulary_id"
   end
 
   create_table "identifiers", force: true do |t|

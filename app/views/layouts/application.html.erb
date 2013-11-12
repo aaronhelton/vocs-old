@@ -9,7 +9,12 @@
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
-<body>
+<% if params[:locale] == 'ar' %>
+<%   direction = 'rtl' %>
+<% else %>
+<%   direction = 'ltr' %>
+<% end %>
+<body style="direction:<%= direction %>">
 <%
   def li_class(lang)
     if lang == params[:locale]
@@ -40,8 +45,7 @@
           </ul>
           <ul class="nav pull-right">
             <li><%= link_to I18n.t('nav.home'), home_path %></li>
-            <li><%= link_to I18n.t('nav.concepts'), 'concepts' %></li>
-            <li><%= link_to I18n.t('nav.categories'), 'categories' %></li>
+	    <li><%= link_to I18n.t('nav.vocabularies'), "/#{params[:locale]}/vocabularies" %></li>
             <% if signed_in? %>
             <li><%= link_to I18n.t("nav.profile"), current_user %></li>
             <li><%= link_to I18n.t("nav.signout"), signout_path, method: "delete" %></li>

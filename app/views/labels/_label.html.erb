@@ -1,1 +1,6 @@
-<span class="conceptLabel"><%= link_to label.value, label.labelable_type %></span>
+<% if params[:locale] %>
+<%   locale_string = params[:locale] %>
+<% else %>
+<%   locale_string = 'en' %>
+<% end %>
+<span class="conceptLabel"><%= link_to label.value, "/#{locale_string}/#{label.labelable_type.downcase.pluralize}/#{label.labelable_id}" %></span>

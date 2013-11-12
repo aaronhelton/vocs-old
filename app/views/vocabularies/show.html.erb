@@ -1,0 +1,20 @@
+<% if params[:locale] %>
+<% end %>
+<% pref_label = @vocabulary.labels.preferred.for_locale(params[:locale]) %>
+<% if pref_label.size > 0
+     @labels = pref_label
+   else
+     @labels = @vocabulary.labels.preferred.for_locale('EN')
+   end
+%>
+<% provide(:title, @labels.first.value) %>
+<h1>
+  <%= @labels.first.value %>
+</h1>
+<% if @vocabulary.categories.any? %>
+<ul>
+<%   @vocabulary.categories.each do |c| %>
+  <%= render c %>
+<%   end %>
+</ul>
+<% end %>

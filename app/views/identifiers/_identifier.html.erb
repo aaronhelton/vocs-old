@@ -1,0 +1,10 @@
+<% @concept.identifiers.each do |id| %>
+<%= id.inspect %>
+<li>
+  <% if id.is_uri %>
+    <%=  link_to id.value, id.value %>
+  <% else %>
+    <%=  id.value %>
+  <% end %>
+</li>
+<% end %>

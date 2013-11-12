@@ -8,9 +8,50 @@
    end
 %>
 <% provide(:title, @labels.first.value) %>
-<h1>
-  <%= @labels.first.value %>
-</h1>
-<% if @concept.concept_type == 'Vocabulary' %>
-  <%= render @concept.childSchemes %>
-<% end %>
+<ol class="breadcrumb">
+  <% @concept.categories.each do |cat| %>
+    <% if cat.parent %>
+      <li><%= link_to cat.parent.vocabularies.first.labels.preferred.for_locale(params[:locale]).first.value, cat.parent.vocabularies.first %><span class="divider">/</span></li>
+      <li><%= link_to cat.parent.labels.preferred.for_locale(params[:locale]).first.value, cat.parent %><span class="divider">/</span></li>
+    <% else %>
+      <li><%= link_to cat.vocabularies.first.labels.preferred.for_locale(params[:locale]).first.value, cat.vocabularies.first %><span class="divider">/</span></li>
+    <% end %>
+    <li><%= link_to cat.labels.preferred.for_locale(params[:locale]).first.value, cat %><span class="divider">/</span></li>
+    <li class="active"><%= @labels.first.value %></li>
+  <% end %>
+</ol>
+<div class="row-fluid">
+  <div class="span4"><!-- Relationships and synonums -->
+    <table class="table table-condensed table-hover">
+      <thead><th><%= I18n.t('nav.relationships') %></th></thead>
+    <% if @concept.broader.any? %>
+      <tr></tr>
+    <% end %>
+    <% if @concept.narrower.any? %>
+      <tr></tr>
+    <% end %>
+    <% if @concept.related.any? %>
+      <% @concept.related.each do |rt| %>
+        <tr>
+          <td><%= link_to rt.concept.labels.preferred.for_locale(params[:locale]).first.value, rt.concept %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </table>
+  </div>
+  <div class="span4"><!-- Language labels -->
+    <table class="table table-condensed table-hover">
+      <thead>
+        <th></th>
+        <th><%= I18n.t('nav.language_equivalent') %></th>
+      </thead>
+      <% @concept.labels.each do |label| %>
+        <tr>
+        <% if label.label_type == 'Preferred' %>
+          <td><%= label.language %></td><td><%= label.value %></td>
+        <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
